@@ -11,7 +11,7 @@
     line-height: 30px;
 }
 .userText span {
-    background-color: #009688;
+    background-color: #657472;
     padding: 10px;
     border-radius: 2px;
 }
@@ -19,11 +19,11 @@
     color: white;
     font-family: monospace;
     font-size: 17px;
-    text-align: left;
+    text-align: left
     line-height: 30px;
 }
 .botText span {
-    background-color: #EF5350;
+    background-color: #3f3b3b;
     padding: 10px;
     border-radius: 2px;
 }
