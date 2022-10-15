@@ -43,9 +43,9 @@ def get_bot_response():
 
     with urllib.request.urlopen("".join((url, "?", params))) as response:
       data = json.loads(response.read())
-    print("Before that - the url ",data['data'][0]['images'][0]['downsized_large'][0]['url'])
+    print("Before that - the url ",str(data['data'][0]['images']['original']['url']))
     #print(json.dumps(data, sort_keys=True, indent=4))
-    return str(data['data'][0]['bitly_url'])
+    return str(data['data'][0]['images']['downsized_large']['url'])
 
 if __name__ == "__main__":
     app.run()
