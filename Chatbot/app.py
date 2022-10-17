@@ -39,6 +39,7 @@ def index():
 def get_bot_response():
     userText = request.args.get('msg') #get input message
     botreply =str(englishBot.get_response(userText))
+    print (botreply)
     params = parse.urlencode({  "q": {botreply[0:45]}, "api_key": "GMEINSldKQkIZIiRTKCvk08crSNGZWTl",  "limit": "1"}) #call API
 
     with urllib.request.urlopen("".join((url, "?", params))) as response:

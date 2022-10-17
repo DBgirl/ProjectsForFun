@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
-    <h2 class="jumbotron text-center"> Memer</h2>
+<body style="background-color:black; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; align-items: center; ">
+    <h1 class="jumbotron text-center" style="background-color:black; color: white;" > MEET ZEBE !</h1>
+    <p class="botText" style=" color: white; text-align: center"><span>Meet memer. AI who replies only with memes </span></p>
 <div class="container">
     <div class="row">
-        <div class="col-sm-1250 offset-sm-3">
-            <div id="chatbox" class="border border-success">
-                <p class="botText"><span>Meet memer. AI who replies only with memes </span></p>
-            </div>
+        <div class="col-sm-1250 ">
             <div id="userInput">
+                <div>   </div>
                 <input id="textInput" class="form-control" type="text" name="msg" placeholder="chat here! ">
                 <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
-                <img id="meme" src="https://media2.giphy.com/media/gw3IWyGkC0rsazTi/480w_s.jpg?cid=4c1c2c2dy5vnivtrbw60obkal50zerxfwr68qspq3il4dzu8&rid=480w_s.jpg&ct=g" alt="HTML5 Icon" style="width:128px;height:128px;">
+                <p>  &nbsp;  </p>
+                <img id="meme" src="" alt="">
             </div>
                  <!--img src="/images/html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"  btn btn-success -->
         </div>
@@ -29,11 +29,10 @@
         let userText = $("#textInput").val();
         let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
         $("#textInput").val("");
-        $("#chatbox").clearQueue();
-        $("#chatbox").append(userHtml);
+        //$("#chatbox").clearQueue();
+       // $("#chatbox").append(userHtml);
         document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
         $.get("/get", { msg: userText }).done(function(data) {
-            //var botHtml = '<p class="botText"><span>' + data + '</span></p>';
             $("#meme").attr("src",data).load(function(){this.width;  });
             $("#meme").attr("alt","changed").load(function(){this.width;  });
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'}); 
