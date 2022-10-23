@@ -1,3 +1,6 @@
-# Learning 
-Learning and exploring python libraries.
- Trying out a AI chatbot which replies in memes. 
+## Personal Projects
+
+  HELLO !  I do my personal fun projects here...
+- ZEBE - MEME Chatbot ✨ 
+- IMDB 
+
