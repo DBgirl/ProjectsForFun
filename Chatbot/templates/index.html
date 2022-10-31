@@ -20,7 +20,6 @@
                 <p>  &nbsp;  </p>
                 <img id="meme" src="" alt="">
             </div>
-                 <!--img src="/images/html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"  btn btn-success -->
         </div>
     </div>
 
@@ -29,8 +28,6 @@
         let userText = $("#textInput").val();
         let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
         $("#textInput").val("");
-        //$("#chatbox").clearQueue();
-       // $("#chatbox").append(userHtml);
         document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
         $.get("/get", { msg: userText }).done(function(data) {
             $("#meme").attr("src",data).load(function(){this.width;  });
