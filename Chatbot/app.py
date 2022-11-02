@@ -5,25 +5,16 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import json
 from urllib import parse
 import urllib.request
-#import pandas as pd
+import keys #I have used key.py to store my secret keys
 
 app = Flask(__name__,template_folder='templates')
 
-
 url = "http://api.giphy.com/v1/gifs/search"
-
-params = parse.urlencode({
-  "q": "That isn't my name",
-  "api_key": "GMEINSldKQkIZIiRTKCvk08crSNGZWTl",
-  "limit": "1"
-})
-
-
 
 
 #create chatbot
 #englishBot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-englishBot = ChatBot("Bitter")
+englishBot = ChatBot("zebe")
 trainer = ChatterBotCorpusTrainer(englishBot)
 trainer.train("chatterbot.corpus.english.movies",
         "chatterbot.corpus.english.greetings",
@@ -40,13 +31,12 @@ def get_bot_response():
     userText = request.args.get('msg') #get input message
     botreply =str(englishBot.get_response(userText))
     print (botreply)
-    params = parse.urlencode({  "q": {botreply[0:45]}, "api_key": "GMEINSldKQkIZIiRTKCvk08crSNGZWTl",  "limit": "1"}) #call API
+    params = parse.urlencode({  "q": {botreply[0:45]}, "api_key": keys.giphykey,  "limit": "1"}) #call API
 
     with urllib.request.urlopen("".join((url, "?", params))) as response:
       data = json.loads(response.read())
-    print("Before that - the url ",str(data['data'][0]['images']['original']['url']))
-    #print(json.dumps(data, sort_keys=True, indent=4))
-    return str(data['data'][0]['images']['downsized_large']['url'])
+    #print("Before that - the url ",str(data['data'][0]['images']['original']['url']))
+    return str(data['data'][0]['images']['downsized_large']['url']) #returns the URL
 
 if __name__ == "__main__":
     app.run()

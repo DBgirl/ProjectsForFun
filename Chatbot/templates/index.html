@@ -9,18 +9,16 @@
 </head>
 <body style="background-color:black; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; align-items: center; ">
     <h1 class="jumbotron text-center" style="background-color:black; color: white;" > MEET ZEBE !</h1>
-    <p class="botText" style=" color: white; text-align: center"><span>Meet memer. AI who replies only with memes </span></p>
+    <p class="botText" style=" color: white; text-align: center"><span>Hello ! I am an AI who replies only with memes. Lets chat... </span></p>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-1250 ">
-            <div id="userInput">
-                <div>   </div>
-                <input id="textInput" class="form-control" type="text" name="msg" placeholder="chat here! ">
-                <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
-                <p>  &nbsp;  </p>
-                <img id="meme" src="" alt="">
-            </div>
-                 <!--img src="/images/html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"  btn btn-success -->
+    <div class="child">
+        <div id="userInput" >
+               
+            <input id="textInput" class="form-control" type="text" name="msg" placeholder="chat here! ">
+            <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
+            <p>  &nbsp;  </p>
+            <img id="meme" src="" alt="">
+            <p>  &nbsp;  </p>
         </div>
     </div>
 
@@ -29,8 +27,6 @@
         let userText = $("#textInput").val();
         let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
         $("#textInput").val("");
-        //$("#chatbox").clearQueue();
-       // $("#chatbox").append(userHtml);
         document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
         $.get("/get", { msg: userText }).done(function(data) {
             $("#meme").attr("src",data).load(function(){this.width;  });
